@@ -63,6 +63,7 @@
     <Folder Include="conchango\" />
     <Folder Include="conchango\Stored Procedures\" />
     <Folder Include="Scripts\" />
+    <Folder Include="jt\Stored Procedures\" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="jt.sql" />
@@ -74,6 +75,8 @@
     <Build Include="conchango\Stored Procedures\csp_ToolRenameObjects2005.sql" />
     <None Include="Scripts\ScriptsIgnoredOnImport.sql" />
     <Build Include="conchango\Stored Procedures\csp_ToolIDAssign.sql" />
+    <Build Include="jt\Stored Procedures\tempdbStats.sql" />
+    <Build Include="jt\Views\vwDiskFileLatency.sql" />
   </ItemGroup>
   <ItemGroup>
     <ArtifactReference Include="$(DacPacRootPath)\Extensions\Microsoft\SQLDB\Extensions\SqlServer\110\SqlSchemas\master.dacpac">
