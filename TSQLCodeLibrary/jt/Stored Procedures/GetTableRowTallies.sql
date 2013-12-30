@@ -2,16 +2,14 @@
 	@dbName SYSNAME = 'master'
 AS
 BEGIN
-		DECLARE @sql NVARCHAR(MAX) = '
-		SELECT t.name
-			,s.partition_number
-			,s.row_count
-		FROM [@dbname].sys.dm_db_partition_stats AS s
-			INNER JOIN [@dbname].sys.tables AS t ON t.[object_id] = s.[object_id]
-		GROUP BY t.name
-			,s.partition_number
-			,s.row_count;
-		';
-		SET	@sql = REPLACE(@sql,'@dbName',@dbName)
-		EXEC (@sql)
+		CREATE TABLE #t (
+				name sysname
+			,	partition_number int
+			,	row_count int
+		);
+		INSERT #t
+		EXEC jt.GetPartitionRowTallies @dbName = @dbName;
+		SELECT	name,row_count = SUM(row_count)
+		FROM	#t
+		GROUP	BY name;
 END
