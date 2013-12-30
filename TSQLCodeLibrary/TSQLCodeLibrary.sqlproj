@@ -64,6 +64,7 @@
     <Build Include="jt.sql" />
     <Build Include="jt\Views\vwAllSessions.sql" />
     <Build Include="jt\Views\vwBufferUsagePerDB.sql" />
+    <Build Include="jt\Views\vwCacheUsagePerTable.sql" />
   </ItemGroup>
   <ItemGroup>
     <ArtifactReference Include="$(DacPacRootPath)\Extensions\Microsoft\SQLDB\Extensions\SqlServer\110\SqlSchemas\master.dacpac">
