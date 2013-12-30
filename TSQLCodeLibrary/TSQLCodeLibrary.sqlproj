@@ -60,6 +60,9 @@
     <Folder Include="jt\" />
     <Folder Include="jt\Views\" />
     <Folder Include="jt\Functions" />
+    <Folder Include="conchango\" />
+    <Folder Include="conchango\Stored Procedures\" />
+    <Folder Include="Scripts\" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="jt.sql" />
@@ -67,6 +70,10 @@
     <Build Include="jt\Views\vwBufferUsagePerDB.sql" />
     <Build Include="jt\Views\vwCacheUsagePerTable.sql" />
     <Build Include="jt\Functions\cdf_TitleCase.sql" />
+    <Build Include="conchango.sql" />
+    <Build Include="conchango\Stored Procedures\csp_ToolRenameObjects2005.sql" />
+    <None Include="Scripts\ScriptsIgnoredOnImport.sql" />
+    <Build Include="conchango\Stored Procedures\csp_ToolIDAssign.sql" />
   </ItemGroup>
   <ItemGroup>
     <ArtifactReference Include="$(DacPacRootPath)\Extensions\Microsoft\SQLDB\Extensions\SqlServer\110\SqlSchemas\master.dacpac">
