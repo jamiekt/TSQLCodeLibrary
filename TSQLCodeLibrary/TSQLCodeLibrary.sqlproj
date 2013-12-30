@@ -78,6 +78,7 @@
     <Build Include="jt\Stored Procedures\tempdbStats.sql" />
     <Build Include="jt\Views\vwDiskFileLatency.sql" />
     <Build Include="jt\Stored Procedures\GetTableRowTallies.sql" />
+    <Build Include="jt\Stored Procedures\TableStats.sql" />
   </ItemGroup>
   <ItemGroup>
     <ArtifactReference Include="$(DacPacRootPath)\Extensions\Microsoft\SQLDB\Extensions\SqlServer\110\SqlSchemas\master.dacpac">
