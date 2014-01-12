@@ -47,4 +47,4 @@ SET @SQL = rePLACE(@SQL,'@dbName',@dbName)
 EXEC (@SQL)
 
 GO
-EXEC sp_addextendedproperty @level0name='jt',@level0type='SCHEMA',@level1name='AllPermissions',@level1type='PROCEDURE',@name='CodeLibraryDescription',@value='All permissions granted to any user, either directly or via role membership.';
+EXEC sp_addextendedproperty @level0name='jt',@level0type='SCHEMA',@level1name='AllPermissions',@level1type='PROCEDURE',@name='CodeLibraryDescription',@value='All permissions granted to any user, either directly or via role membership. Associated blog post here: http://blogs.conchango.com/jamiethomson/archive/2007/02/09/SQL-Server-2005_3A00_-View-all-permissions--_2800_2_2900_.aspx';
