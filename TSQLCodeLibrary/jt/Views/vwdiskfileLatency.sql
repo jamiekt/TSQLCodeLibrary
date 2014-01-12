@@ -35,3 +35,8 @@ JOIN sys.master_files AS mf
 -- ORDER BY Latency DESC
 -- ORDER BY ReadLatency DESC
 ORDER BY WriteLatency DESC;
+
+GO
+EXEC sp_addextendedproperty @level0name='jt',@level0type='SCHEMA',@level1name='vwdiskfileLatency',@level1type='VIEW',@name='CodeLibraryDescription',@value='Show disk file latency. Gotten from Paul Randal at http://www.sqlskills.com/BLOGS/PAUL/category/IO-Subsystems.aspx';
+
+

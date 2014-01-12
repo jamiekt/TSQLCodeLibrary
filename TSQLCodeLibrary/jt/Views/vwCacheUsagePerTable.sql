@@ -34,3 +34,5 @@ SELECT	TOP 20 DB_NAME(database_id) AS 'Database'
 FROM	memusage_CTE 
 GROUP	BY database_id, object_id, index_id 
 ORDER	BY COUNT(*) DESC
+GO
+EXEC sp_addextendedproperty @level0name='jt',@level0type='SCHEMA',@level1name='vwCacheUsagePerTable',@level1type='VIEW',@name='CodeLibraryDescription',@value='Show cache usage per table. Taken from a blog by Steve Hindmarsh at http://sqlblogcasts.com/blogs/steveh/archive/2010/04/02/dbcc-memusage-in-2008.aspx';

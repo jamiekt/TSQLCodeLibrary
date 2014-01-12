@@ -25,3 +25,5 @@ left  outer join sys.dm_exec_connections c
 on          c.session_id = s.session_id
 left  outer join sys.dm_exec_requests r 
 on          r.session_id = s.session_id
+GO
+EXEC sp_addextendedproperty @level0name='jt',@level0type='SCHEMA',@level1name='vwAllSessions',@level1type='VIEW',@name='CodeLibraryDescription',@value='All current sessions, plus info from sys.dm_exec_requests';

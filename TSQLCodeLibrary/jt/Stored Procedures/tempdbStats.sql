@@ -24,3 +24,6 @@ FROM tempdb.sys.dm_db_file_space_usage;
 --Determining the Total Amount of Space (Free and Used)
 SELECT SUM(size)*1.0/128 AS [size in MB]
 FROM tempdb.sys.database_files
+
+GO
+EXEC sp_addextendedproperty @level0name='jt',@level0type='SCHEMA',@level1name='tempdbStats',@level1type='PROCEDURE',@name='CodeLibraryDescription',@value='Loads of useful information about tempdb.';

@@ -45,3 +45,6 @@ ON     rm.role_principal_id = p.principal_id
 order by 1';
 SET @SQL = rePLACE(@SQL,'@dbName',@dbName)
 EXEC (@SQL)
+
+GO
+EXEC sp_addextendedproperty @level0name='jt',@level0type='SCHEMA',@level1name='AllPermissions',@level1type='PROCEDURE',@name='CodeLibraryDescription',@value='All permissions granted to any user, either directly or via role membership.';

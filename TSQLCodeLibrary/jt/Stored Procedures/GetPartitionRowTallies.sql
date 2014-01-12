@@ -15,3 +15,6 @@ BEGIN
 		SET	@sql = REPLACE(@sql,'@dbName',@dbName)
 		EXEC (@sql)
 END
+
+GO
+EXEC sp_addextendedproperty @level0name='jt',@level0type='SCHEMA',@level1name='GetPartitionRowTallies',@level1type='PROCEDURE',@name='CodeLibraryDescription',@value='Tally of rows per partition in a given database.';

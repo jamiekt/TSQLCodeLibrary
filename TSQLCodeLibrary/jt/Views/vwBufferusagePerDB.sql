@@ -20,3 +20,5 @@ GROUP BY [database_id], [is_modified] WITH CUBE
 ) AS SourceTable
 PIVOT(SUM([SizeInMB]) FOR [State] IN (Clean, Dirty, Total)) AS PivotTable
 ORDER BY [DatabaseName]
+GO
+EXEC sp_addextendedproperty @level0name='jt',@level0type='SCHEMA',@level1name='vwBufferUsagePerDB',@level1type='VIEW',@name='CodeLibraryDescription',@value='Show buffer usage per database.';

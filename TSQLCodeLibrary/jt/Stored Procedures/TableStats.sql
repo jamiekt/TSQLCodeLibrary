@@ -205,3 +205,5 @@ jamie@jamie-thomson.net
 	FROM	@table_metrics;
 
 ;
+GO
+EXEC sp_addextendedproperty @level0name='jt',@level0type='SCHEMA',@level1name='TableStats',@level1type='PROCEDURE',@name='CodeLibraryDescription',@value='Stats per table. Provides Rowcount, Does it have a clustered index?, Is the primary key clustered?, Number of columns, Number of unique, none-primary keys, Number of none unique columns';

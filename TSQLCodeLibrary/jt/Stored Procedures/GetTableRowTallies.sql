@@ -13,3 +13,6 @@ BEGIN
 		FROM	#t
 		GROUP	BY name;
 END
+
+GO
+EXEC sp_addextendedproperty @level0name='jt',@level0type='SCHEMA',@level1name='GetTableRowTallies',@level1type='PROCEDURE',@name='CodeLibraryDescription',@value='Tally of rows per table in a given database.';

@@ -75,7 +75,7 @@ BEGIN
 			SELECT @vNewObjectName = 'FK_' + @vFKTableName + '_' + @vPKTableName + '_' + @vCurObjectCount
 	
 			IF @pExecuteSQL = 1
-				EXEC SP_RENAME @vCurObjectName, @vNewObjectName, 'OBJECT'
+				EXEC sp_rename @vCurObjectName, @vNewObjectName, 'OBJECT'
 	
 			IF @pPrintSQL = 1
 				SELECT @vNewObjectName, @vCurObjectName		
@@ -100,7 +100,7 @@ BEGIN
 		SELECT 	DISTINCT 
 			CONSTRAINT_NAME AS CurObjectName
 		INTO 	#CHKs
-		FROM 	INFORMATION_SCHEMA.table_constraints 
+		FROM 	INFORMATION_SCHEMA.TABLE_CONSTRAINTS 
 		WHERE 	TABLE_NAME = @vTableName AND
 			CONSTRAINT_TYPE = 'CHECK'
 		ORDER BY CONSTRAINT_NAME
@@ -123,7 +123,7 @@ BEGIN
 			SELECT @vNewObjectName = 'CK_' + @vTableName + '_' + @vCurObjectCount
 	
 			IF @pExecuteSQL = 1
-				EXEC SP_RENAME @vCurObjectName, @vNewObjectName, 'OBJECT'
+				EXEC sp_rename @vCurObjectName, @vNewObjectName, 'OBJECT'
 	
 			IF @pPrintSQL = 1
 				SELECT @vNewObjectName, 	@vCurObjectName		
@@ -145,36 +145,36 @@ BEGIN
 		IF OBJECT_ID('TEMPDB..#Indexes') IS NOT NULL
 			DROP TABLE #Indexes
 	
-		SELECT 	OBJECT_NAME(si.ID) as TableName,
+		SELECT 	OBJECT_NAME(si.id) as TableName,
 			si.name as IndexName, 
 			(CASE WHEN OBJECTPROPERTY(scon.constid, 'IsPrimaryKey') = 1 THEN 1 ELSE 0 END) as bPrimary,
-			(CASE WHEN INDEXPROPERTY(si.ID, si.NAME, 'IsClustered') = 1 THEN 1 ELSE 0 END) as bCLustered,
+			(CASE WHEN INDEXPROPERTY(si.id, si.name, 'IsClustered') = 1 THEN 1 ELSE 0 END) as bClustered,
 			max(sk.keyno) as NumCols
 		INTO	#Indexes
-		FROM 	SYSINDEXES si
+		FROM 	sysindexes si
 			INNER JOIN 
-			SYSINDEXKEYS sk
+			sysindexkeys sk
 			ON
 			si.id = sk.id and
 			si.indid = sk.indid
 			INNER JOIN
-			SYSCOLUMNS sc
+			syscolumns sc
 			ON
 			sk.id = sc.id and
 			sk.colid = sc.colid
-			LEFT OUTER JOIN SYSCONSTRAINTS scon
+			LEFT OUTER JOIN sysconstraints scon
 			ON
 			si.id = scon.id and
 			si.name = object_name(scon.constid)
 		WHERE 	INDEXPROPERTY(si.id, si.name, 'IsStatistics') = 0  AND
-		 	OBJECT_NAME(si.ID) = @vTableName
-		GROUP BY OBJECT_NAME(si.ID),
+		 	OBJECT_NAME(si.id) = @vTableName
+		GROUP BY OBJECT_NAME(si.id),
 			si.name, 
 			(CASE WHEN OBJECTPROPERTY(scon.constid, 'IsPrimaryKey') = 1 THEN 1 ELSE 0 END),
-			(CASE WHEN INDEXPROPERTY(si.ID, si.NAME, 'IsClustered') = 1 THEN 1 ELSE 0 END)
+			(CASE WHEN INDEXPROPERTY(si.id, si.name, 'IsClustered') = 1 THEN 1 ELSE 0 END)
 		ORDER 	BY	
-			OBJECT_NAME(si.ID),
-			(CASE WHEN INDEXPROPERTY(si.ID, si.NAME, 'IsClustered') = 1 THEN 1 ELSE 0 END) DESC,
+			OBJECT_NAME(si.id),
+			(CASE WHEN INDEXPROPERTY(si.id, si.name, 'IsClustered') = 1 THEN 1 ELSE 0 END) DESC,
 			si.name
 	
 		SELECT  @vObjectCount = @@ROWCOUNT,
@@ -198,7 +198,7 @@ BEGIN
 				@vCurObjectName = @vTableName + '.' + @vCurObjectName
 	
 			IF @pExecuteSQL = 1
-				EXEC SP_RENAME @vCurObjectName, @vNewObjectName, 'INDEX'
+				EXEC sp_rename @vCurObjectName, @vNewObjectName, 'INDEX'
 	
 			IF @pPrintSQL = 1
 				SELECT @vNewObjectName, 	@vCurObjectName		
