@@ -1,11 +1,4 @@
-IF NOT EXISTS(SELECT * FROM INFORMATION_SCHEMA.VIEWS
-               WHERE TABLE_CATALOG = N'MyDb'
-                 AND TABLE_SCHEMA  = N'dbo'
-                 AND TABLE_NAME    = N'vwFastRowCounts')
-    CREATE VIEW dbo.vwFastRowCounts AS SELECT 1 a;
-GO
-
-ALTER VIEW dbo.vwFastRowCounts
+CREATE VIEW dbo.vwFastRowCounts
 AS 
 SELECT  schm.name+'.'+objt.name Reference
        ,SUM(row_count) [RowCount]
@@ -15,4 +8,3 @@ SELECT  schm.name+'.'+objt.name Reference
  WHERE stat.index_id < 2 AND schm.name <> 'sys'
  GROUP BY schm.name+'.'+objt.name
 ;
-GO
