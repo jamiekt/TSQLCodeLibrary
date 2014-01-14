@@ -82,7 +82,6 @@
     <Build Include="jt\Stored Procedures\AllPermissions.sql" />
     <Build Include="jt\Stored Procedures\GetPartitionRowTallies.sql" />
     <Build Include="jt\Views\vwCodeLibraryDescriptions.sql" />
-    <Build Include="jt\Views\vwFastRowCounts.sql" />
   </ItemGroup>
   <ItemGroup>
     <ArtifactReference Include="$(DacPacRootPath)\Extensions\Microsoft\SQLDB\Extensions\SqlServer\110\SqlSchemas\master.dacpac">
