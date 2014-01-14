@@ -30,7 +30,7 @@ WITH memusage_CTE AS (
 SELECT	TOP 20 DB_NAME(database_id) AS 'Database'
 ,		OBJECT_NAME(object_id,database_id) AS 'Table Name'
 ,		index_id,COUNT(*) AS 'Pages in Cache'
-,		SUM(dirtyPage) AS 'Dirty Pages' 
+,		SUM(DirtyPage) AS 'Dirty Pages' 
 FROM	memusage_CTE 
 GROUP	BY database_id, object_id, index_id 
 ORDER	BY COUNT(*) DESC
