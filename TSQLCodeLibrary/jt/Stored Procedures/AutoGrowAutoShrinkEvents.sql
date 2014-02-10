@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [jt].[AutoGrowAutoSkrinkEvents]
+﻿CREATE PROCEDURE [jt].[AutoGrowAutoShrinkEvents]
 @dbname SYSNAME = NULL
 AS 
     BEGIN

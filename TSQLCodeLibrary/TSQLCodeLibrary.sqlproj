@@ -86,7 +86,7 @@
     <Build Include="jt\Stored Procedures\IndexFragmentationPerDB.sql" />
     <Build Include="jt\Views\StatsLastUpdatedTime.sql" />
     <Build Include="jt\Stored Procedures\CurrentlyExecutingSQLAgentJobs.sql" />
-    <Build Include="jt\Stored Procedures\AutoGrowAutoSkrinkEvents.sql" />
+    <Build Include="jt\Stored Procedures\AutoGrowAutoShrinkEvents.sql" />
   </ItemGroup>
   <ItemGroup>
     <ArtifactReference Include="$(DacPacRootPath)\Extensions\Microsoft\SQLDB\Extensions\SqlServer\110\SqlSchemas\master.dacpac">
