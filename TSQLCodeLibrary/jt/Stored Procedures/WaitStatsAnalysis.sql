@@ -2,6 +2,10 @@
 		@ResetWaitStats BIT = 0
 AS
 BEGIN
+		PRINT 'Requires VIEW SERVER STATE';
+		PRINT 'From Wait statistics, or please tell me where it hurts by Paul Randal http://www.sqlskills.com/blogs/paul/wait-statistics-or-please-tell-me-where-it-hurts/';
+		PRINT '  and';
+		PRINT 'when were wait stats last cleared? by Erin Stellato http://www.sqlskills.com/blogs/erin/figuring-out-when-wait-stats-were-last-cleared';
 		IF @ResetWaitStats = 1
 				DBCC SQLPERF(N'sys.dm_os_wait_stats', CLEAR);
  
