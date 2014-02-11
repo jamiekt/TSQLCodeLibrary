@@ -8,7 +8,7 @@ AS
         IF NOT EXISTS ( SELECT  *
                         FROM    tempdb.sys.tables
                         WHERE   name = 'VirtualFileStats' ) 
-            CREATE TABLE [dbo].[VirtualFileStats]
+            CREATE TABLE tempdb..[VirtualFileStats]
                 (
                  [database_id] [smallint] NOT NULL
                 ,[file_id] [smallint] NOT NULL
