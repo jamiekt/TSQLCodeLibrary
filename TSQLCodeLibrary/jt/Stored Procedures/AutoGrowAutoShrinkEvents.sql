@@ -25,14 +25,14 @@ AS
                     SELECT  ( DENSE_RANK() OVER ( ORDER BY StartTime DESC ) ) % 2 AS l1
                     ,       CONVERT(INT, EventClass) AS EventClass
                     ,       DatabaseName
-                    ,       Filename
+                    ,       FileName
                     ,       ( Duration / 1000 ) AS DurationMS
                     ,       StartTime
                     ,       EndTime
                     ,       ( IntegerData * 8.0 / 1024 ) AS ChangeInSize
                     INTO    #events
                     FROM    ::
-                            FN_TRACE_GETTABLE(@base_tracefilename, DEFAULT)
+                            fn_trace_gettable(@base_tracefilename, DEFAULT)
                     WHERE   EventClass >= 92
                             AND EventClass <= 95
                             AND ServerName = @@servername
