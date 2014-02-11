@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[WaitStatsAnalysis]
+﻿CREATE PROCEDURE [jt].[WaitStatsAnalysis]
 		@ResetWaitStats BIT = 0
 AS
 BEGIN
