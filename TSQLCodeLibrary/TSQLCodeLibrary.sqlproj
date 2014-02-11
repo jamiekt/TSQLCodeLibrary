@@ -88,6 +88,7 @@
     <Build Include="jt\Stored Procedures\CurrentlyExecutingSQLAgentJobs.sql" />
     <Build Include="jt\Stored Procedures\AutoGrowAutoShrinkEvents.sql" />
     <Build Include="jt\Stored Procedures\WaitStatsAnalysis.sql" />
+    <Build Include="jt\Stored Procedures\GetIoVirtualFileStatsDeltas.sql" />
   </ItemGroup>
   <ItemGroup>
     <ArtifactReference Include="$(DacPacRootPath)\Extensions\Microsoft\SQLDB\Extensions\SqlServer\110\SqlSchemas\master.dacpac">
